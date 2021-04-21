@@ -42,6 +42,9 @@ const Example1 = () => {
 
     useEffect(() => {
         console.log("decrement use Effect");
+        if(decrement === 0) {
+            setDecrement(5);
+        }
     }, [decrement])
 
 
@@ -70,7 +73,7 @@ const Example1 = () => {
                 When the particular variable is passed to useEffect, it will render, when ever the passed variable is changed
             </li>
             <li>
-                Avoid using setState in useEffect, because it will continuously sets the page state, and makes the page of the application in 
+                Avoid using setState in useEffect when array is not passed, because it will continuously sets the page state, and makes the page of the application in 
                 Infinite loop - making the page nonresponsive
             </li>
         </ol> 
