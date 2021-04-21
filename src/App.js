@@ -1,4 +1,4 @@
-import UseStateHookExample from "./hooks/UseStateHookExample";
+import UseStateHookExample from "./hooks/usestate/UseStateHookExample";
 import Star from './starComponent/Star';
 import UseEffectHookExample from './hooks/useeffect/UseEffectHookExample';
 
