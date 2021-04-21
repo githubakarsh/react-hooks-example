@@ -4,9 +4,17 @@ import { useState } from 'react';
 
 const Star = ({totalStars}) => {
     const [selectedStars, setSelectedStars] = useState(false);
-    return createArray(totalStars).map((n, i) => {
-       return  <StarComponent selected={selectedStars > i} key={i} onClick={() => setSelectedStars(i + 1)}/>
-    });
+
+    const onSelectedStars = (i) => {
+        i > 0 ? setSelectedStars(i + 1) : setSelectedStars(false);
+    }
+    
+    return <div>{createArray(totalStars).map((n, i) => {
+       return  <StarComponent selected={selectedStars > i} key={i} onClick={() => onSelectedStars(i) }/>
+    })
+} 
+{selectedStars && <p>Rating {totalStars} out of {selectedStars}</p>}
+</div>
 }
 
 Star.defaultProps = {
