@@ -1,5 +1,6 @@
 import { useReducer, useEffect } from "react";
 import { Example1} from './Example1';
+import { Example2} from './Example2';
 
 const UseReducerExample = () => {
   useEffect(() => {
@@ -20,6 +21,9 @@ const UseReducerExample = () => {
       </section>
       <section>
         <Example1 />
+      </section>
+      <section>
+        <Example2 />
       </section>
     </div>
   );
