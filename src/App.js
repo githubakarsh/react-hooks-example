@@ -4,6 +4,8 @@ import UseEffectHookExample from './hooks/useeffect/UseEffectHookExample';
 import UseReducerExample from "./hooks/usereducer/UseReducerExample";
 import UseRefExample from './hooks/useref/UseRefExample';
 import { CustomHook } from './hooks/customhook/CustomHook';
+import { UseContextExample } from './hooks/usecontext/UseContextExample';
+import { UseFetchExample } from './hooks/usefetch/UseFetchExample';
 
 
 
@@ -15,8 +17,10 @@ function App() {
       <UseEffectHookExample />
       <UseReducerExample />
       <UseRefExample />
-      <UseStateHookExample /> */}
+      <UseStateHookExample /> 
       <CustomHook />
+    */}
+    <UseFetchExample />
     </div>
   );
 }
