@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+For more hooks ... u can simply learn from useHooks.com
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
