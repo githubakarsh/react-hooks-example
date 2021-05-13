@@ -1,6 +1,6 @@
 import {useEffect} from 'react';
 
-const useHookOne = (
+const usePageTitle = (
     currentAppTitle
 ) => {
     useEffect(() => {
@@ -8,4 +8,4 @@ const useHookOne = (
     }, []);
 }
 
-export default useHookOne;
+export default usePageTitle;

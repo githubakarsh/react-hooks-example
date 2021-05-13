@@ -1,35 +1,44 @@
 import {useState, useRef} from 'react';
 
 export const Example1 = () => {
-    const [state, setState] = useState({email: '', password : '', errorField: ''});
+    const [state, setState] = useState({email: '', password : '', hasError: false});
     const emailRef = useRef();
     const passwordRef = useRef();
 
+    /**
+     * 
+     * @param {ref} ref - this the ref that is created for email and password, Example : emailRef, passwordRef
+     * this function set focus this there are no inputs for those fields
+     */
+    const isValueEntered = (ref) => {
+        if(!ref.current.value) {
+            ref.current.focus();
+        }
+    }
+
+    /**
+     * 
+     * @param {*} e, 
+     * here the submi function checks whether email and password fields are not empty, 
+     * else it set focus on missing fields and throws error.
+     */
     const submitForm = (e) => {
         e.preventDefault();
-        console.log('submit form');
-        const emailValue = emailRef.current.value;
-        const passwordValue = passwordRef.current.value;
-        if(!emailValue || !passwordValue) {
-            if(!emailValue) {
-                emailRef.current.focus();
-                setState({...state, errorField: 'email'})    
-            }
-
-            if(!passwordValue) {
-                passwordRef.current.focus();
-                setState({...state, errorField: 'password'})
-            }
-            console.log(state)
-            setState({...state, hasError: true})
-        }else {
-            setState({...state, hasError: false})
+        if(!emailRef.current.value || !passwordRef.current.value) {
+            isValueEntered(emailRef);
+            isValueEntered(passwordRef);
+            setState({...state, hasError: true });
+        } if(!emailRef.current.value && !passwordRef.current.value) {
+            emailRef.current.focus();
+            setState({...state, hasError: true });
+        } else {
+            setState({...state, hasError: false })
         }
     }
 
     return <div>
         <article>
-           {state.hasError && <p style={{color : 'red'}}>You missed {state.errorField} please enter </p>} 
+           {state.hasError && <p style={{color : 'red'}}>Please enter the missing values </p>} 
             <form onSubmit={(e) => submitForm(e)}>
                 <div>
                     <label>Your Email</label>
